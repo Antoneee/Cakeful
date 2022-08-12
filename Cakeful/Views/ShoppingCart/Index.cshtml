@@ -1,0 +1,54 @@
+﻿@model ShoppingCartViewModel
+
+<div class="container">
+    <div class="row row-cols-2">
+        <div class="col col-8">
+            <ul class="list-unstyled">
+            @foreach(var shoppingCartItem in Model.ShoppingCartItems)
+            {
+                <li>
+                    <div class="card mb-3">
+                        <div class="row g-0">
+                            <div class="col-md-4">
+                                <img src="@shoppingCartItem.Cake.ImageUrl" class="img-fluid rounded-start" style="height:140px;width:100%;object-fit:cover" alt="...">
+                            </div>
+                            <div class="col-md-8">
+                                <div class="card-body d-flex justify-content-around">
+                                    <div>
+                                        <h6 class="card-title">@shoppingCartItem.Cake.Name</h6>
+                                        <p class="card-text mb-0">Category: @shoppingCartItem.Cake.Category.CategoryName</p>
+                                        <p class="card-text">@(shoppingCartItem.Cake.InStock ? "In Stock" : "Out Of Stock")</p>
+                                    </div>
+                                    <div>
+                                        <h6 class="card-title">Each</h6>
+                                        <p class="card-text">$@shoppingCartItem.Cake.Price</p>
+                                    </div>
+                                    <div>
+                                        <h6 class="card-title">Quantity</h6>
+                                        <p class="card-text">@shoppingCartItem.Amount</p>
+                                    </div>
+                                    <div>
+                                        <h6 class="card-title">Total</h6>
+                                        <p class="card-text">$@(shoppingCartItem.Amount * shoppingCartItem.Cake.Price)</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+            }
+            </ul>
+        </div>
+        <div class="col col-4">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Estimated Total</h5>
+                    <h6 class="mb-2 text-muted">$@Model.ShoppingCartPrice</h6>
+                    <a href="#" class="btn btn-secondary">&larr; Go Back</a>
+                    <a href="#" class="btn btn-success">Checkout</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+

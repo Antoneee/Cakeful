@@ -1,0 +1,18 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+@model IEnumerable<Cake>
+
+<partial name="_Carousel"/>
+<h2 class="text-center mb-5" style="margin-top:5rem">Featured Cakes</h2>
+<div class="d-flex justify-content-center">
+    <ul class="container row list-unstyled">
+    @foreach (var cake in Model)
+    {
+        <partial name="_CakeCard" model="@cake"/>
+    }
+</ul>
+</div>
+<div class="container text-center mt-4">
+    <a class="btn btn-secondary text-center" asp-controller="Cake" asp-action="Index">View All Cakes &rarr;</a>
+</div>

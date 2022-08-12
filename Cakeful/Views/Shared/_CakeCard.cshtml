@@ -1,0 +1,18 @@
+﻿@model Cake
+
+<li class="col">
+    <div class="card" style="width:18rem;margin-inline:auto">
+        <img src="@Model.ImageUrl" class="featured-list-item__img">
+        <div class="card-body w-100">
+            <h5 class="card-title">
+                <a class="link-dark text-decoration-none" asp-controller="Cake" asp-action="Details" asp-route-cakeId="@Model.CakeId">
+                    @Model.Name
+                </a>
+            </h5>
+            <p class="card-text">@Model.ShortDescription</p>
+            <a class="btn btn-success w-100" asp-controller="ShoppingCart" asp-action="AddToCart" asp-route-cakeId="@Model.CakeId">
+                Add To Cart
+            </a>
+        </div>
+    </div>
+</li>

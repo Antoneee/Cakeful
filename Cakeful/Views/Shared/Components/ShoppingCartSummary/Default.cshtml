@@ -1,0 +1,10 @@
+﻿@model int
+
+<a class="nav-link text-light" asp-controller="ShoppingCart" asp-action="Index" style="">
+    <div>
+        <i class="bi bi-cart3"></i>
+        @if (Model != 0) {
+            <span>@Model.ToString()</span>
+        }
+    </div>
+</a>

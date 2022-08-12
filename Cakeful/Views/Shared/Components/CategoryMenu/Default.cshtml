@@ -1,0 +1,27 @@
+﻿@model IEnumerable<Category>
+
+<div class="dropdown">
+    <button 
+        class="dropdown-toggle" 
+        type="button" 
+        data-bs-toggle="dropdown" 
+        aria-expanded="false" 
+        style="background-color:transparent;border:none;color:inherit">
+        Cakes
+    </button>
+    <ul class="dropdown-menu">
+        @foreach(var category in Model )
+        {
+            <li>
+                <a class="dropdown-item" asp-controller="Cake" asp-action="Index" asp-route-category="@category.CategoryName">
+                    @category.CategoryName
+                </a>
+            </li>
+        }
+        <li>
+            <a class="dropdown-item" asp-controller="Cake" asp-action="Index">
+                All Cakes
+            </a>
+        </li>
+    </ul>
+</div>

@@ -1,0 +1,10 @@
+﻿@model IEnumerable<Cake>
+
+<div class="container">
+    <ul class="row list-unstyled d-flex" style="margin-top:2rem">
+    @foreach (var cake in Model)
+    {
+        <partial name="_CakeCard" model="@cake"/>
+    }
+</ul>
+</div>
