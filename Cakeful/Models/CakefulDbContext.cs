@@ -1,8 +1,9 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore;
 
 namespace Cakeful.Models
 {
-    public class CakefulDbContext : DbContext
+    public class CakefulDbContext : IdentityDbContext
     {
         public CakefulDbContext(DbContextOptions<CakefulDbContext> options) : base(options)
         {
@@ -12,9 +13,12 @@ namespace Cakeful.Models
         public DbSet<Cake> Cakes { get; set; }
         public DbSet<Category> Categories { get; set; }
         public DbSet<ShoppingCartItem> ShoppingCartItems { get; set; }
+        public DbSet<Order> Orders { get; set; }
+        public DbSet<OrderDetail> OrderDetails { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
+            base.OnModelCreating(modelBuilder);
             modelBuilder.Entity<Category>().HasData(
                 new Category { CategoryId = 1, CategoryName = "Butter", Description = "Amet dictum sit amet justo donec enim diam vulputate." },
                 new Category { CategoryId = 2, CategoryName = "Pound", Description = "Amet dictum sit amet justo donec enim diam vulputate." },
