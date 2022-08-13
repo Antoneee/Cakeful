@@ -8,7 +8,7 @@
         <h1>@Model.Name</h1>
         <p>@Model.LongDescription</p>
         <p>$@Model.Price.ToString()</p>
-        <a class="btn btn-success"><i class="bi bi-plus-circle"></i> &nbsp; Add To Cart</a>
+        <a class="btn btn-success" asp-controller="ShoppingCart" asp-action="AddToCart" asp-route-cakeId="@Model.CakeId"><i class="bi bi-plus-circle"></i> &nbsp; Add To Cart</a>
         <br />
         <a class="btn btn-secondary text-center align-self-start" asp-controller="Cake" asp-action="Index" style="margin-top:auto">
             &larr; Go back
