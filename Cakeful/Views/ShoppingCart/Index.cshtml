@@ -44,8 +44,8 @@
                 <div class="card-body">
                     <h5 class="card-title">Estimated Total</h5>
                     <h6 class="mb-2 text-muted">$@Model.ShoppingCartPrice</h6>
-                    <a href="#" class="btn btn-secondary">&larr; Go Back</a>
-                    <a href="#" class="btn btn-success">Checkout</a>
+                    <a class="btn btn-secondary" asp-controller="Cake" asp-action="Index">&larr; All Cakes</a>
+                    <a class="btn btn-success" asp-controller="Order" asp-action="Checkout">Checkout</a>
                 </div>
             </div>
         </div>
